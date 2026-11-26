@@ -1,13 +1,15 @@
 import { Navigate, Outlet } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import Logo from './Logo'
 
 export default function ProtectedRoute() {
   const { session, loading } = useAuth()
 
-  if (loading) {
+    if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-50">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-200 border-t-indigo-600" />
+      <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-slate-50">
+        <Logo size={72} className="animate-pulse" />
+        <p className="text-sm font-medium text-slate-400">Cargando UniPlan...</p>
       </div>
     )
   }
